@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/ajustes_background.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/ajustes_background2.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/bg_circle.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/book.xml" value="0.1921875" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/boton_bordes.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/boton_gasto.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/boton_ingreso.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/btn_blue_normal.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/btn_blue_pressed.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/btn_blue_selector.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/btn_romper.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/entradas_de_texto.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/home.xml" value="0.1921875" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/rectangulo_bordesredondos.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/drawable/user.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/activity_example1.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/activity_menu.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/agregar_transaccion.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/confirmar_martillo.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_account.xml" value="0.12771739130434784" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_ahorro.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_ahorros.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_ajustes.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_book.xml" value="0.12771739130434784" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_control.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_home.xml" value="0.16" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_inicio.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_inicio__vacio.xml" value="0.25" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/fragment_metas.xml" value="0.33" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/lista_ahorro.xml" value="0.1743659420289855" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/lista_ahorro_meta.xml" value="0.1743659420289855" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/lista_registros.xml" value="0.21" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/layout/lista_transacciones.xml" value="0.1743659420289855" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/menu/menu.xml" value="0.17604166666666668" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/ajustes.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/home_.xml" value="0.1921875" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/icon3_.xml" value="0.22552083333333334" />
+        <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/icon3__round.xml" value="0.22552083333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
