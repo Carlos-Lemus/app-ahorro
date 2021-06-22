@@ -117,7 +117,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/saldoAhorro"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -167,6 +167,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <ListView
+        android:id="@+id/listaAbonos_De_Ahorro"
         android:layout_width="408dp"
         android:layout_height="258dp"
         android:layout_marginTop="8dp"
@@ -184,6 +185,24 @@
         android:foregroundTint="@color/azulOscuro"
         android:tint="@color/azulOscuro"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/entrantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

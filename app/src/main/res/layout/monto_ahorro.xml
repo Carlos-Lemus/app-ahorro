@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azulOscuro">
+
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="498dp">
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="290dp"
+                    android:layout_height="62dp"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="144dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="NUEVO AHORRO"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="26sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/PrimerAbono"
+                    android:layout_width="93dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="272dp"
+                    android:ems="10"
+                    android:hint="Cantidad"
+                    android:inputType="textPersonName"
+                    android:textColor="#FFFF"
+                    android:textColorHint="#FFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="245dp"
+                    android:layout_height="66dp"
+                    android:layout_marginTop="24dp"
+                    android:background="#F9289D"
+                    android:text="Iniciar ahorro"
+                    android:textColor="#FFFF"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/PrimerAbono" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

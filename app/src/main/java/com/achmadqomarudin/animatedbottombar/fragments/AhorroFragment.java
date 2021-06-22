@@ -1,6 +1,9 @@
 package com.achmadqomarudin.animatedbottombar.fragments;
 
 import android.app.Dialog;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,20 +16,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.achmadqomarudin.animatedbottombar.AbonoAhorro;
 import com.achmadqomarudin.animatedbottombar.R;
+import com.achmadqomarudin.animatedbottombar.adapterAbonoAhorro;
+import com.achmadqomarudin.animatedbottombar.adapterAhorro;
+import com.achmadqomarudin.animatedbottombar.database.ConnectionHelper;
+
+import java.util.ArrayList;
 
 
 public class AhorroFragment extends Fragment {
 
     FragmentManager fragmentManager;
 
-    TextView fechaInicio, fechaUltima;
+    TextView fechaInicio, fechaUltima, entrante;
     EditText monto;
     Button ahorrar, SI_btn, NO_btn;
     ImageButton martillo;
     ImageView cerdo;
+    Bundle datosRecuperados;
+    public ArrayList<AbonoAhorro> listaTarea;
+    ListView lista;
+    int acumulador;
+
     public AhorroFragment() {
         // Required empty public constructor
     }
@@ -52,15 +68,27 @@ public class AhorroFragment extends Fragment {
 
         //*********** Aqui pones el codigo para validar e ingresar a la db****************
         //Declaro los elementos
-
+        datosRecuperados = getArguments();
         fechaInicio = (TextView) view.findViewById(R.id.fecha_inicio_meta);
+
         fechaUltima = (TextView) view.findViewById(R.id.fecha_ultima_ahorro);
         monto = (EditText) view.findViewById(R.id.txtMonto_ahorro);
         ahorrar = (Button)view.findViewById(R.id.ahorro_btn);
         martillo = (ImageButton) view.findViewById(R.id.martillo_btn);
+        entrante = (TextView) view.findViewById(R.id.entrantes);
+        TextView saldo_ahorro = (TextView) view.findViewById(R.id.saldoAhorro);
+        TextView number = (TextView) view.findViewById(R.id.numero);
+
+        lista = (ListView)view.findViewById(R.id.listaAbonos_De_Ahorro);
+        listaTarea = new ArrayList<AbonoAhorro>();
 
         cerdo = (ImageView) view.findViewById(R.id.ahorro_img);
+        acumulador = datosRecuperados.getInt("PrimerAbono");
 
+        mostrar(view);
+
+        entrante.setText(String.valueOf(datosRecuperados.getInt("idAhorro") + datosRecuperados.getString("NombreAhorro") + " - " + String.valueOf(datosRecuperados.getInt("PrimerAbono"))));
+        saldo_ahorro.setText("$"+String.valueOf(datosRecuperados.getInt("PrimerAbono")));
 
         //************** Modal Martillo***************
         martillo.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +120,15 @@ public class AhorroFragment extends Fragment {
 
         ahorrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                number.setText(monto.getText().toString());
+                if(guardar(datosRecuperados.getInt("idAhorro"), Integer.parseInt(monto.getText().toString()))) {
+                    Toast.makeText(getContext(), "Guardado", Toast.LENGTH_SHORT).show();
+                    int res  = update(Integer.parseInt(monto.getText().toString()));
 
+                    saldo_ahorro.setText("$"+String.valueOf(res));
+                } else {
+                    Toast.makeText(getContext(), "No guardado", Toast.LENGTH_SHORT).show();
+                }
 
                 //************ Resetea El cerdo y el Martillo**************//////////
 
@@ -101,7 +137,7 @@ public class AhorroFragment extends Fragment {
                 if(martillo.getVisibility() == View.GONE){
                     martillo.setVisibility(View.VISIBLE);
                 }
-
+                mostrar(view);
             }
         });
 
@@ -119,5 +155,59 @@ public class AhorroFragment extends Fragment {
 
 
         return view;
+    }
+
+    public Boolean guardar(int idAhorro, int cantidad) {
+        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        SQLiteDatabase con = objBase.getWritableDatabase();
+
+        try {
+            ContentValues registro = new ContentValues();
+            registro.put("cantidad_abono", cantidad);
+            registro.put("idAhorro", idAhorro);
+            con.insert("tblAbonoAhorro", null, registro);
+            //Toast.makeText(getContext(), "Guardado", Toast.LENGTH_SHORT).show();
+            con.close();
+            return true;
+
+        }catch (Exception e) {
+            //Toast.makeText(getContext(), "Ha ocurrido un error" + e.getMessage(), Toast.LENGTH_SHORT);
+            return false;
+        }
+    }
+
+    public void mostrar(View view) {
+        listaTarea = new ArrayList<AbonoAhorro>();
+        lista = view.findViewById(R.id.listaAbonos_De_Ahorro);
+        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        SQLiteDatabase con = objBase.getWritableDatabase();
+
+        Cursor cursor = con.rawQuery("SELECT * FROM tblAbonoAhorro WHERE idAhorro="+datosRecuperados.getInt("idAhorro"), null);
+
+        while (cursor.moveToNext()) {
+            listaTarea.add(new AbonoAhorro(
+                    cursor.getInt(cursor.getColumnIndex("idAbonoAhorro")),
+                    cursor.getInt(cursor.getColumnIndex("idAhorro")),
+                    cursor.getInt(cursor.getColumnIndex("cantidad_abono"))
+            ));
+        }
+
+        adapterAbonoAhorro adapter = new adapterAbonoAhorro(listaTarea, getContext());
+        lista.setAdapter(adapter);
+    }
+
+    public int update(int monto) {
+        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        SQLiteDatabase con = objBase.getWritableDatabase();
+
+        acumulador += monto;
+        int res = acumulador;
+
+        ContentValues registro = new ContentValues();
+        registro.put("montoAhorro", acumulador );
+
+        con.update("tblAhorro", registro, String.valueOf(datosRecuperados.getInt("idAhorro")), null);
+
+        return res;
     }
 }
