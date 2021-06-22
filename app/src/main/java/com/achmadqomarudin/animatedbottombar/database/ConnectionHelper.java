@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class ConnectionHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NOMBRE = "BDControlAhorros";
+    private static final String DATABASE_NOMBRE = "BD";
     public static final String TABLA_TRANSACCIONES = "tablaTransacciones";
     public static final String TABLA_CUENTA = "tablaCuenta";
     public static final String TABLA_CATEGORIA = "tablaCategoria";
@@ -25,18 +25,10 @@ public class ConnectionHelper extends SQLiteOpenHelper {
                 "idTran INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "tipoTran TEXT NOT NULL," +
                 "fechaTran DATE NOT NULL," +
-                "idCuenta INTEGER NOT NULL CONSTRAINT fk_id_cuenta REFERENCES " + TABLA_CUENTA + "  (idCuenta) ON DELETE CASCADE ON UPDATE CASCADE," + "" +
-                "idCategoria INTEGER NOT NULL CONSTRAINT fk_id_categoria REFERENCES " + TABLA_CATEGORIA + "  (idCategoria) ON DELETE CASCADE ON UPDATE CASCADE," +
+                "cuentaTran TEXT NOT NULL," +
+                "categoriaTran TEXT NOT NULL," +
                 "importeTran REAL NOT NULL," +
                 "notaTran TEXT NOT NULL)");
-
-        db.execSQL("CREATE TABLE " + TABLA_CUENTA + "(" +
-                "idCuenta INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombreCuenta TEXT NOT NULL)");
-
-        db.execSQL("CREATE TABLE " + TABLA_CATEGORIA + "(" +
-                "idCategoria INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombreCategoria TEXT NOT NULL)");
     }
 
     @Override

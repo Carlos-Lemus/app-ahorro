@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Categorias">
-        <item>Categoria 1</item>
-        <item>Categoria 2</item>
-        <item>Categoria 3</item>
+        <item>Transporte</item>
+        <item>Comida</item>
+        <item>Hogar</item>
+        <item>Salud</item>
+        <item>Regalos</item>
+        <item>Ropa</item>
     </string-array>
 
     <string-array name="Cuentas">
-        <item>Cuenta 1</item>
-        <item>Cuenta 2</item>
-        <item>Cuenta 3</item>
+        <item>Efectivo</item>
+        <item>Tarjeta Credito</item>
+        <item>Tarjeta Debito</item>
     </string-array>
     <string-array name="Tipo">
         <item>Gasto</item>

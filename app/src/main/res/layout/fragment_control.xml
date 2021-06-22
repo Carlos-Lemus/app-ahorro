@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="411dp"
+        android:layout_width="426dp"
         android:layout_height="66dp"
         android:background="@color/Rojo11"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,20 +21,21 @@
             android:id="@+id/lbl_fecha"
             android:layout_width="183dp"
             android:layout_height="35dp"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="sans-serif-black"
             android:text="Label de Fecha"
             android:textColor="@color/colorFondo"
-            android:textSize="24sp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.709" />
 
         <ImageButton
             android:id="@+id/imageButton3"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="36dp"
+            android:layout_width="37dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="24dp"
             android:background="@color/Rojo11"
             android:contentDescription="Buscar"
             android:foreground="@drawable/lupa"
@@ -67,7 +68,7 @@
                 android:text="Ingresos"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/ingresos_txt"
@@ -94,7 +95,7 @@
                 android:text="Gastos"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/gastos_txt"
@@ -121,7 +122,7 @@
                 android:text="Balance"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/balance_txt"
@@ -137,6 +138,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/listViewTransacciones"
         android:layout_width="410dp"
         android:layout_height="522dp"
         android:layout_marginTop="12dp"
