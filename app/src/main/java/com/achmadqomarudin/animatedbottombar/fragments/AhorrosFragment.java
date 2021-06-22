@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -66,6 +68,23 @@ public class AhorrosFragment extends Fragment {
         montoAhorro = new Dialog(getContext());
         montoAhorro.setContentView(R.layout.monto_ahorro);
 
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Ahorro ahorro = (Ahorro) lista.getAdapter().getItem(position);
+                da.setText(String.valueOf(ahorro.getIdAhorro()));
+                datosAEnviar.putInt("idAhorro", ahorro.getIdAhorro());
+                datosAEnviar.putInt("PrimerAbono", ahorro.getAbono_inicial());
+                datosAEnviar.putString("NombreAhorro", ahorro.getNombreAhorro());
+
+                Fragment fragment = new AhorroFragment();
+                fragment.setArguments(datosAEnviar);
+                fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
+                        .commit();
+            }
+        });
+
 
         ahorros.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -99,13 +118,7 @@ public class AhorrosFragment extends Fragment {
                                     Toast.makeText(getContext(), "No guardado", Toast.LENGTH_SHORT).show();
                                 }
 
-                                da.setText(String.valueOf(obtenerAhorro(nameAhorro)));
-
-                                /*Fragment fragment = new AhorroFragment();
-                                fragment.setArguments(datosAEnviar);
-                                fragmentManager = getFragmentManager();
-                                fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
-                                        .commit();*/
+                                //da.setText(String.valueOf(obtenerAhorro(nameAhorro)));
 
                                 mostrar(view);
                             }
@@ -148,17 +161,6 @@ public class AhorrosFragment extends Fragment {
         }
     }
 
-    public int obtenerAhorro(String nombre) {
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
-        SQLiteDatabase con = objBase.getWritableDatabase();
-
-
-
-        Cursor cursor = con.rawQuery("SELECT MAX(idAhorro) FROM tblAhorro", null);
-
-        return cursor.getInt(cursor.getColumnIndex("idAhorro"));
-    }
-
     public void mostrar(View view) {
         listaTarea = new ArrayList<Ahorro>();
         lista = view.findViewById(R.id.listaAhorros);
@@ -170,7 +172,8 @@ public class AhorrosFragment extends Fragment {
         while (cursor.moveToNext()) {
             listaTarea.add(new Ahorro(
                     cursor.getInt(cursor.getColumnIndex("idAhorro")),
-                    cursor.getString(cursor.getColumnIndex("nombreAhorro"))
+                    cursor.getString(cursor.getColumnIndex("nombreAhorro")),
+                    cursor.getInt(cursor.getColumnIndex("montoAhorro"))
             ));
         }
 

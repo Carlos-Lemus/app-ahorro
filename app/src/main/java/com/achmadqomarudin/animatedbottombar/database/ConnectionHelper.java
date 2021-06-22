@@ -52,7 +52,7 @@ public class ConnectionHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE "+TABLA_ABONO_AHORRO+"("+
                 "idAbonoAhorro INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "cantidad_abono REAL NOT NULL," +
+                "cantidad_abono INTEGER NOT NULL," +
                 "idAhorro INTEGER NOT NULL CONSTRAINT fk_id_ahorro REFERENCES " + TABLA_AHORRO + "(idAhorro) ON DELETE CASCADE ON UPDATE CASCADE)");
     }
 

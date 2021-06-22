@@ -11,12 +11,12 @@ import com.achmadqomarudin.animatedbottombar.fragments.Ahorro;
 
 import java.util.List;
 
-public class adapterAhorro extends BaseAdapter {
-    public List<Ahorro> listaConsulta;
+public class adapterAbonoAhorro extends BaseAdapter {
+    public List<AbonoAhorro> listaConsulta;
     public Context context;
     public TextView t1,t2,t3;
 
-    public adapterAhorro(List<Ahorro> listaConsulta, Context context) {
+    public adapterAbonoAhorro(List<AbonoAhorro> listaConsulta, Context context) {
         this.listaConsulta = listaConsulta;
         this.context = context;
     }
@@ -38,16 +38,14 @@ public class adapterAhorro extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Ahorro template = listaConsulta.get(position);
+        AbonoAhorro template = listaConsulta.get(position);
 
-        convertView = LayoutInflater.from(context).inflate(R.layout.lista_ahorro, null);
-        t1 = convertView.findViewById(R.id.textidAhorro);
-        t2 = convertView.findViewById(R.id.textnombreAhorro);
-        t3 = convertView.findViewById(R.id.cantidad_abono_inicial);
+        convertView = LayoutInflater.from(context).inflate(R.layout.list_abono_ahorro, null);
+        t1 = convertView.findViewById(R.id.textfecha_deposito);
+        t2 = convertView.findViewById(R.id.textmonto_deposito);
 
-        t1.setText(String.valueOf(template.getIdAhorro()));
-        t2.setText(String.valueOf(template.getNombreAhorro()));
-        t3.setText(String.valueOf(template.getAbono_inicial()));
+        t1.setText(String.valueOf(template.getIdAbonoAhorro()));
+        t2.setText(String.valueOf(template.getCantidad_abono()));
 
         return convertView;
     }

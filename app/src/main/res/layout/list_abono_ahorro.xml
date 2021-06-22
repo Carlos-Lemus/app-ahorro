@@ -6,36 +6,42 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/cantidad_abono_inicial"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="64dp"
-        android:text="TextView"
-        android:textColor="#E03434"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="32dp"
+        android:text="Deposito"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textidAhorro"
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="64dp"
-        android:text="TextView"
-        android:textColor="#E03434"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="32dp"
+        android:text="Fecha de deposito"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textnombreAhorro"
+        android:id="@+id/textfecha_deposito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="84dp"
         android:text="TextView"
-        android:textColor="#E03434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textmonto_deposito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="84dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
