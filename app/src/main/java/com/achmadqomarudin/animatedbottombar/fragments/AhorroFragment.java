@@ -158,7 +158,7 @@ public class AhorroFragment extends Fragment {
     }
 
     public Boolean guardar(int idAhorro, int cantidad) {
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        ConnectionHelper objBase = new ConnectionHelper(getContext());
         SQLiteDatabase con = objBase.getWritableDatabase();
 
         try {
@@ -179,7 +179,7 @@ public class AhorroFragment extends Fragment {
     public void mostrar(View view) {
         listaTarea = new ArrayList<AbonoAhorro>();
         lista = view.findViewById(R.id.listaAbonos_De_Ahorro);
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        ConnectionHelper objBase = new ConnectionHelper(getContext());
         SQLiteDatabase con = objBase.getWritableDatabase();
 
         Cursor cursor = con.rawQuery("SELECT * FROM tblAbonoAhorro WHERE idAhorro="+datosRecuperados.getInt("idAhorro"), null);
@@ -197,7 +197,7 @@ public class AhorroFragment extends Fragment {
     }
 
     public int update(int monto) {
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        ConnectionHelper objBase = new ConnectionHelper(getContext());
         SQLiteDatabase con = objBase.getWritableDatabase();
 
         acumulador += monto;

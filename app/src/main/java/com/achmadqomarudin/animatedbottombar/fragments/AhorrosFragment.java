@@ -143,7 +143,7 @@ public class AhorrosFragment extends Fragment {
     }
 
     public Boolean guardar(String nameAhorro, int cant_ahorro) {
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        ConnectionHelper objBase = new ConnectionHelper(getContext());
         SQLiteDatabase con = objBase.getWritableDatabase();
 
         try {
@@ -164,7 +164,7 @@ public class AhorrosFragment extends Fragment {
     public void mostrar(View view) {
         listaTarea = new ArrayList<Ahorro>();
         lista = view.findViewById(R.id.listaAhorros);
-        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        ConnectionHelper objBase = new ConnectionHelper(getContext());
         SQLiteDatabase con = objBase.getWritableDatabase();
 
         Cursor cursor = con.rawQuery("SELECT * FROM tblAhorro", null);
