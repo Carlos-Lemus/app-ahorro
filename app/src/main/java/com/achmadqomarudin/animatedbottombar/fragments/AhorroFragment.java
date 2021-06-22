@@ -38,8 +38,10 @@ public class AhorroFragment extends Fragment {
     Button ahorrar, SI_btn, NO_btn;
     ImageButton martillo;
     ImageView cerdo;
+    Bundle datosRecuperados;
     public ArrayList<AbonoAhorro> listaTarea;
     ListView lista;
+    int acumulador;
 
     public AhorroFragment() {
         // Required empty public constructor
@@ -66,7 +68,7 @@ public class AhorroFragment extends Fragment {
 
         //*********** Aqui pones el codigo para validar e ingresar a la db****************
         //Declaro los elementos
-
+        datosRecuperados = getArguments();
         fechaInicio = (TextView) view.findViewById(R.id.fecha_inicio_meta);
 
         fechaUltima = (TextView) view.findViewById(R.id.fecha_ultima_ahorro);
@@ -81,8 +83,9 @@ public class AhorroFragment extends Fragment {
         listaTarea = new ArrayList<AbonoAhorro>();
 
         cerdo = (ImageView) view.findViewById(R.id.ahorro_img);
+        acumulador = datosRecuperados.getInt("PrimerAbono");
 
-        Bundle datosRecuperados = getArguments();
+        mostrar(view);
 
         entrante.setText(String.valueOf(datosRecuperados.getInt("idAhorro") + datosRecuperados.getString("NombreAhorro") + " - " + String.valueOf(datosRecuperados.getInt("PrimerAbono"))));
         saldo_ahorro.setText("$"+String.valueOf(datosRecuperados.getInt("PrimerAbono")));
@@ -120,6 +123,9 @@ public class AhorroFragment extends Fragment {
                 number.setText(monto.getText().toString());
                 if(guardar(datosRecuperados.getInt("idAhorro"), Integer.parseInt(monto.getText().toString()))) {
                     Toast.makeText(getContext(), "Guardado", Toast.LENGTH_SHORT).show();
+                    int res  = update(Integer.parseInt(monto.getText().toString()));
+
+                    saldo_ahorro.setText("$"+String.valueOf(res));
                 } else {
                     Toast.makeText(getContext(), "No guardado", Toast.LENGTH_SHORT).show();
                 }
@@ -176,7 +182,7 @@ public class AhorroFragment extends Fragment {
         ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
         SQLiteDatabase con = objBase.getWritableDatabase();
 
-        Cursor cursor = con.rawQuery("SELECT * FROM tblAbonoAhorro", null);
+        Cursor cursor = con.rawQuery("SELECT * FROM tblAbonoAhorro WHERE idAhorro="+datosRecuperados.getInt("idAhorro"), null);
 
         while (cursor.moveToNext()) {
             listaTarea.add(new AbonoAhorro(
@@ -188,5 +194,20 @@ public class AhorroFragment extends Fragment {
 
         adapterAbonoAhorro adapter = new adapterAbonoAhorro(listaTarea, getContext());
         lista.setAdapter(adapter);
+    }
+
+    public int update(int monto) {
+        ConnectionHelper objBase = new ConnectionHelper(getContext(), "exampleDB", null, 1);
+        SQLiteDatabase con = objBase.getWritableDatabase();
+
+        acumulador += monto;
+        int res = acumulador;
+
+        ContentValues registro = new ContentValues();
+        registro.put("montoAhorro", acumulador );
+
+        con.update("tblAhorro", registro, String.valueOf(datosRecuperados.getInt("idAhorro")), null);
+
+        return res;
     }
 }
