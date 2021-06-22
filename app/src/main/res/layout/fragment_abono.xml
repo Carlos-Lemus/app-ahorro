@@ -24,22 +24,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="273dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="20dp"
-            android:progress="0"
-            android:progressTint="@color/Rojo11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="390dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="64dp"
             android:background="@drawable/boton_bordes"
             android:orientation="horizontal"
@@ -51,28 +39,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/fecha_inicio_meta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="00/00/0000"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="Fecha de Inicio"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:id="@+id/lblTotalAbonoMeta"
@@ -88,27 +55,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/fecha_ultima_meta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="00/00/0000"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textView22"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Ultimo Deposito"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                android:orientation="vertical"/>
         </LinearLayout>
 
         <ListView
@@ -119,9 +66,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.521"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView2"

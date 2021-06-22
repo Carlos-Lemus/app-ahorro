@@ -33,7 +33,7 @@ public class AhorroFragment extends Fragment {
 
     FragmentManager fragmentManager;
 
-    TextView fechaInicio, fechaUltima, entrante;
+    TextView entrante;
     EditText monto;
     Button ahorrar, SI_btn, NO_btn;
     ImageButton martillo;
@@ -69,9 +69,7 @@ public class AhorroFragment extends Fragment {
         //*********** Aqui pones el codigo para validar e ingresar a la db****************
         //Declaro los elementos
         datosRecuperados = getArguments();
-        fechaInicio = (TextView) view.findViewById(R.id.fecha_inicio_meta);
 
-        fechaUltima = (TextView) view.findViewById(R.id.fecha_ultima_ahorro);
         monto = (EditText) view.findViewById(R.id.txtMonto_ahorro);
         ahorrar = (Button)view.findViewById(R.id.ahorro_btn);
         martillo = (ImageButton) view.findViewById(R.id.martillo_btn);

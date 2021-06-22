@@ -82,7 +82,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="390dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/boton_bordes"
         android:orientation="horizontal"
@@ -93,28 +93,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/fecha_inicio_ahorro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="00/00/0000"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Fecha de Inicio"
-                android:textColor="@android:color/background_light"
-                android:textSize="16sp" />
-
-        </LinearLayout>
+            android:orientation="vertical"/>
 
         <TextView
             android:id="@+id/saldoAhorro"
@@ -130,27 +109,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/fecha_ultima_ahorro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="00/00/0000"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="Ultimo Deposito"
-                android:textColor="@android:color/background_light"
-                android:textSize="16sp" />
-        </LinearLayout>
+            android:orientation="vertical"/>
     </LinearLayout>
 
     <TextView
