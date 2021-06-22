@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.achmadqomarudin.animatedbottombar.R;
@@ -34,6 +35,7 @@ public class AbonoFragment extends Fragment {
     private int id;
     private Button agregarAbonobtn;
     private EditText txtCantidadAbono;
+    private TextView lblTotalAbonoMeta;
 
     private AdapterAbonoMetas adapterAbonoMetas;
     private ListView listView;
@@ -66,6 +68,8 @@ public class AbonoFragment extends Fragment {
         }
 
         this.id = bundle.getInt("idMeta");
+
+        lblTotalAbonoMeta = (TextView) view.findViewById(R.id.lblTotalAbonoMeta);
 
         txtCantidadAbono = (EditText) view.findViewById(R.id.monto_meta_txt);
         listView = (ListView) view.findViewById(R.id.listViewAbonos);
@@ -111,6 +115,8 @@ public class AbonoFragment extends Fragment {
 
         ArrayList<AbonoMetaDelAhorro> lista = new ArrayList<AbonoMetaDelAhorro>();
 
+        double totalAbono = 0;
+
         dbHelper = new ConnectionHelper(getContext());
 
         db = dbHelper.getWritableDatabase();
@@ -128,12 +134,16 @@ public class AbonoFragment extends Fragment {
             String nombre = cursor.getString(cursor.getColumnIndex("nombre_meta"));
             double cantidad = Double.parseDouble(cursor.getString(cursor.getColumnIndex("cantidad_abono")));
 
+            totalAbono += cantidad;
+
             AbonoMetaDelAhorro abonoMetaDelAhorro = new AbonoMetaDelAhorro(idAbono, idMeta, cantidad, nombre);;
 
             lista.add(abonoMetaDelAhorro);
         }
 
         cursor.close();
+
+        lblTotalAbonoMeta.setText("$ " +  totalAbono);
 
         adapterAbonoMetas = new AdapterAbonoMetas(lista, getContext());
 

@@ -206,7 +206,10 @@ public class AhorroFragment extends Fragment {
         ContentValues registro = new ContentValues();
         registro.put("montoAhorro", acumulador );
 
-        con.update("tblAhorro", registro, String.valueOf(datosRecuperados.getInt("idAhorro")), null);
+        String selection = "idAhorro = ?";
+        String[] selectionArgs = { String.valueOf(datosRecuperados.getInt("idAhorro")) };
+
+        con.update("tblAhorro", registro, selection , selectionArgs);
 
         return res;
     }
