@@ -22,7 +22,7 @@ public class AhorroFragment extends Fragment {
 
     FragmentManager fragmentManager;
 
-    TextView fechaInicio, fechaUltima;
+    TextView fechaInicio, fechaUltima, entrante;
     EditText monto;
     Button ahorrar, SI_btn, NO_btn;
     ImageButton martillo;
@@ -54,12 +54,18 @@ public class AhorroFragment extends Fragment {
         //Declaro los elementos
 
         fechaInicio = (TextView) view.findViewById(R.id.fecha_inicio_meta);
+
         fechaUltima = (TextView) view.findViewById(R.id.fecha_ultima_ahorro);
         monto = (EditText) view.findViewById(R.id.txtMonto_ahorro);
         ahorrar = (Button)view.findViewById(R.id.ahorro_btn);
         martillo = (ImageButton) view.findViewById(R.id.martillo_btn);
+        entrante = (TextView) view.findViewById(R.id.entrantes);
 
         cerdo = (ImageView) view.findViewById(R.id.ahorro_img);
+
+        Bundle datosRecuperados = getArguments();
+
+        entrante.setText(datosRecuperados.getString("NombreAhorro") + " - " + String.valueOf(datosRecuperados.getInt("PrimerAbono")));
 
 
         //************** Modal Martillo***************
