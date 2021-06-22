@@ -42,6 +42,12 @@
         <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/home_.xml" value="0.1921875" />
         <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/icon3_.xml" value="0.22552083333333334" />
         <entry key="..\:/AnimatedBottomBar-master/app/src/main/res/mipmap-anydpi-v26/icon3__round.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/fragment_abono.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/fragment_ahorros.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/fragment_inicio.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/fragment_metas.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/lista_abonos_meta.xml" value="0.264" />
+        <entry key="..\:/Users/carlo/AndroidStudioProjects/app-ahorro/app/src/main/res/layout/lista_metas.xml" value="0.4" />
       </map>
     </option>
   </component>
